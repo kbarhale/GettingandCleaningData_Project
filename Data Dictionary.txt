@@ -1,0 +1,16 @@
+Understanding the data
+
+1. The first step is to read the included ReadMe file in the dataset. It gives a perspective about the data and provides details about what is measured data about, what is the sample size, what is the observation duration.
+2. The data is collected, combined and analyzed in the run_Analysis.R file.
+
+Function Flow
+
+1. Including the Reshape2 package. This package allows the users to flexibly restructure and aggregate data using just two functions: melt and cast.These functions have been used in the R Script.
+2. Although it is a redundant step, I prefer to View the data after every operation, to ensure the files have been updated with the intended change. 
+3. We start of with reading the attribute files (feature and Activity Labels) and renaming the column names, so that they provide context about the experiment.The first files to be read are the attribute files. 
+4. We combine the observations made in the Train and Test Data sets, by using the cbind function.
+5. We create a complete data set by appending the Combined Train Data to the Combined Test data to create the Complete_Data, dataset.   
+6. We look for fields containing Means and Standard Deviations and subset the data to include those columns only (MeanStdDev_Data).
+7. We merge the MeanStdDev_Data and the Activity Labels tables on the basis of Activity ID. This allows us to include the Activity Names along with the sensor data.
+8.Using the Melt and Cast functions, we stack the data in columns to include the mean for each activity, subjectid and feature.
+9.We output the data in a file called Tidy_Data.txt file. 
